@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | SITTA Universitas Terbuka</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/script.js" defer></script>
+</head>
+<body class="login-page">
+  <main class="login-wrapper">
+    <section class="login-card">
+      <div class="brand">
+        <div class="brand-logo">UT</div>
+        <div>
+          <h1>SITTA</h1>
+          <p>Universitas Terbuka</p>
+        </div>
+      </div>
+
+      <div class="welcome">
+        <span class="eyebrow">Sistem Informasi</span>
+        <h2>Selamat Datang!</h2>
+        <p>Silakan login untuk mengakses layanan bahan ajar.</p>
+      </div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="nama@ut.ac.id" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Masukkan password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Login</button>
+      </form>
+
+      <div class="login-links">
+        <button type="button" class="text-button" data-modal="forgotModal">
+          Lupa Password?
+        </button>
+        <span>Belum punya akun?</span>
+        <button type="button" class="text-button" data-modal="registerModal">
+          Daftar
+        </button>
+      </div>
+
+      <div class="demo-info">
+        <strong>Akun demo</strong>
+        <p>Email: admin@ut.ac.id</p>
+        <p>Password: admin123</p>
+      </div>
+
+      <p class="footer-note">© 2026 SITTA · Universitas Terbuka</p>
+    </section>
+  </main>
+
+  <dialog id="forgotModal" class="modal">
+    <div class="modal-header">
+      <h2>Lupa Password</h2>
+      <button type="button" class="icon-button" data-close-modal aria-label="Tutup">×</button>
+    </div>
+    <p>Masukkan email akun untuk simulasi pemulihan password.</p>
+    <form id="forgotForm">
+      <div class="form-group">
+        <label for="forgotEmail">Email</label>
+        <input type="email" id="forgotEmail" required placeholder="nama@ut.ac.id">
+      </div>
+      <button class="btn btn-primary btn-full" type="submit">Periksa Email</button>
+    </form>
+  </dialog>
+
+  <dialog id="registerModal" class="modal">
+    <div class="modal-header">
+      <h2>Daftar Akun</h2>
+      <button type="button" class="icon-button" data-close-modal aria-label="Tutup">×</button>
+    </div>
+    <p>Formulir pendaftaran simulasi SITTA.</p>
+    <form id="registerForm">
+      <div class="form-group">
+        <label for="registerName">Nama lengkap</label>
+        <input id="registerName" required placeholder="Nama lengkap">
+      </div>
+      <div class="form-group">
+        <label for="registerEmail">Email</label>
+        <input type="email" id="registerEmail" required placeholder="nama@ut.ac.id">
+      </div>
+      <div class="form-group">
+        <label for="registerPassword">Password</label>
+        <input type="password" id="registerPassword" minlength="6" required placeholder="Minimal 6 karakter">
+      </div>
+      <button class="btn btn-primary btn-full" type="submit">Buat Akun Demo</button>
+    </form>
+  </dialog>
+</body>
+</html>

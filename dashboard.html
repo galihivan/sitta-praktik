@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | SITTA</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <a href="dashboard.html" class="sidebar-brand">
+        <span class="brand-logo">UT</span>
+        <span><strong>SITTA</strong><small>Universitas Terbuka</small></span>
+      </a>
+
+      <p class="nav-label">MENU UTAMA</p>
+      <nav class="nav-menu">
+        <a href="dashboard.html" class="nav-link active">▦ <span>Dashboard</span></a>
+        <a href="stok.html" class="nav-link">▤ <span>Informasi Bahan Ajar</span></a>
+        <a href="tracking.html" class="nav-link">⇢ <span>Tracking Pengiriman</span></a>
+        <a href="#laporan" class="nav-link" data-demo-menu="Monitoring Progress DO Bahan Ajar">▥ <span>Laporan</span></a>
+        <a href="#histori" class="nav-link" data-demo-menu="Histori Transaksi Bahan Ajar">◷ <span>Histori Transaksi</span></a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <p class="small-muted">Sistem Informasi dan Transaksi Bahan Ajar</p>
+        <button class="btn btn-outline btn-full" data-logout>Keluar</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="icon-button mobile-menu-button" id="menuToggle" aria-label="Buka menu">☰</button>
+        <div>
+          <p class="small-muted">Universitas Terbuka</p>
+          <h2>Dashboard</h2>
+        </div>
+        <div class="profile-chip">
+          <span class="avatar" id="userAvatar">U</span>
+          <div><strong id="userName">Pengguna</strong><small id="userRole">Pengguna SITTA</small></div>
+        </div>
+      </header>
+
+      <section class="welcome-banner">
+        <div>
+          <span class="eyebrow">PORTAL SITTA</span>
+          <h1 id="greeting">Selamat datang!</h1>
+          <p id="greetingDetail">Kelola kebutuhan bahan ajar dengan mudah.</p>
+          <p class="banner-date" id="currentDate"></p>
+        </div>
+        <div class="banner-icon">▤</div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div><h2>Menu Layanan</h2><p>Pilih layanan yang ingin kamu buka.</p></div>
+        </div>
+        <div class="service-grid">
+          <a href="stok.html" class="service-card">
+            <span class="service-icon icon-blue">▤</span>
+            <h3>Informasi Bahan Ajar</h3>
+            <p>Lihat daftar dan ketersediaan stok bahan ajar.</p>
+            <span class="card-action">Buka layanan →</span>
+          </a>
+          <a href="tracking.html" class="service-card">
+            <span class="service-icon icon-green">⇢</span>
+            <h3>Tracking Pengiriman</h3>
+            <p>Periksa status dan riwayat pengiriman bahan ajar.</p>
+            <span class="card-action">Buka layanan →</span>
+          </a>
+          <a href="#laporan" class="service-card" data-demo-menu="Monitoring Progress DO Bahan Ajar">
+            <span class="service-icon icon-orange">▥</span>
+            <h3>Laporan</h3>
+            <p>Simulasi monitoring progress DO dan rekap bahan ajar.</p>
+            <span class="card-action">Lihat laporan →</span>
+          </a>
+          <a href="#histori" class="service-card" data-demo-menu="Histori Transaksi Bahan Ajar">
+            <span class="service-icon icon-purple">◷</span>
+            <h3>Histori Transaksi</h3>
+            <p>Akses menu simulasi histori transaksi bahan ajar.</p>
+            <span class="card-action">Lihat histori →</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div><h2>Ringkasan Bahan Ajar</h2><p>Data dummy untuk demonstrasi aplikasi.</p></div>
+          <a href="stok.html" class="btn btn-outline">Lihat semua</a>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card">
+            <span class="stat-icon icon-blue">▤</span>
+            <p>Jenis Bahan Ajar</p>
+            <h3 id="totalBooks">0</h3>
+          </article>
+          <article class="stat-card">
+            <span class="stat-icon icon-green">✓</span>
+            <p>Total Stok</p>
+            <h3 id="totalStock">0</h3>
+            <small>Eksemplar</small>
+          </article>
+          <article class="stat-card">
+            <span class="stat-icon icon-orange">⇢</span>
+            <p>Data Tracking</p>
+            <h3 id="totalTracking">0</h3>
+            <small>Nomor DO dummy</small>
+          </article>
+        </div>
+      </section>
+
+      <footer class="page-footer">© 2026 SITTA · Universitas Terbuka · Aplikasi simulasi tugas praktikum</footer>
+    </main>
+  </div>
+</body>
+</html>

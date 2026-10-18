@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracking Pengiriman | SITTA</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <a href="dashboard.html" class="sidebar-brand">
+        <span class="brand-logo">UT</span>
+        <span><strong>SITTA</strong><small>Universitas Terbuka</small></span>
+      </a>
+      <p class="nav-label">MENU UTAMA</p>
+      <nav class="nav-menu">
+        <a href="dashboard.html" class="nav-link">▦ <span>Dashboard</span></a>
+        <a href="stok.html" class="nav-link">▤ <span>Informasi Bahan Ajar</span></a>
+        <a href="tracking.html" class="nav-link active">⇢ <span>Tracking Pengiriman</span></a>
+        <a href="dashboard.html#laporan" class="nav-link">▥ <span>Laporan</span></a>
+        <a href="dashboard.html#histori" class="nav-link">◷ <span>Histori Transaksi</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <p class="small-muted">Sistem Informasi dan Transaksi Bahan Ajar</p>
+        <button class="btn btn-outline btn-full" data-logout>Keluar</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="icon-button mobile-menu-button" id="menuToggle" aria-label="Buka menu">☰</button>
+        <div><p class="small-muted">Menu utama / Pengiriman</p><h2>Tracking Pengiriman</h2></div>
+        <div class="profile-chip"><span class="avatar" id="userAvatar">U</span><div><strong id="userName">Pengguna</strong><small id="userRole">Pengguna SITTA</small></div></div>
+      </header>
+
+      <section class="section-block">
+        <div class="page-intro">
+          <span class="eyebrow">PEMANTAUAN PAKET</span>
+          <h1>Lacak Pengiriman Bahan Ajar</h1>
+          <p>Masukkan nomor Delivery Order (DO) untuk melihat informasi pengiriman.</p>
+        </div>
+
+        <form id="trackingForm" class="search-panel">
+          <div class="form-group search-field">
+            <label for="nomorDO">Nomor Delivery Order</label>
+            <input id="nomorDO" name="nomorDO" type="text" required placeholder="Contoh: 2023001234">
+          </div>
+          <button type="submit" class="btn btn-primary">⌕ Cari Pengiriman</button>
+        </form>
+        <p class="helper-text">Nomor demo: 2023001234 atau 2023005678.</p>
+        <div id="trackingMessage" class="message" role="status" hidden></div>
+
+        <div id="trackingResult" hidden>
+          <div class="result-heading">
+            <div><span class="eyebrow">HASIL PENCARIAN</span><h2>Detail Pengiriman</h2></div>
+            <span id="trackingStatus" class="status-badge">Dalam Perjalanan</span>
+          </div>
+
+          <div class="detail-grid">
+            <article class="detail-card">
+              <p>Nomor DO</p><h3 id="resultDO">-</h3>
+            </article>
+            <article class="detail-card">
+              <p>Nama Mahasiswa</p><h3 id="resultName">-</h3>
+            </article>
+            <article class="detail-card">
+              <p>Ekspedisi</p><h3 id="resultCourier">-</h3>
+            </article>
+            <article class="detail-card">
+              <p>Tanggal Kirim</p><h3 id="resultDate">-</h3>
+            </article>
+            <article class="detail-card">
+              <p>Jenis/Kode Paket</p><h3 id="resultPackage">-</h3>
+            </article>
+            <article class="detail-card">
+              <p>Total Pembayaran</p><h3 id="resultTotal">-</h3>
+            </article>
+          </div>
+
+          <section class="content-card timeline-card">
+            <div class="section-heading"><div><h2>Riwayat Perjalanan</h2><p>Catatan proses pengiriman dari data dummy.</p></div></div>
+            <div id="trackingTimeline" class="timeline"></div>
+          </section>
+        </div>
+      </section>
+      <footer class="page-footer">© 2026 SITTA · Universitas Terbuka</footer>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stok Bahan Ajar | SITTA</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Data dummy dimuat sebelum script utama -->
+  <script src="js/data.js" defer></script>
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <a href="dashboard.html" class="sidebar-brand">
+        <span class="brand-logo">UT</span>
+        <span>
+          <strong>SITTA</strong>
+          <small>Universitas Terbuka</small>
+        </span>
+      </a>
+
+      <p class="nav-label">MENU UTAMA</p>
+
+      <nav class="nav-menu">
+        <a href="dashboard.html" class="nav-link">
+          ▦ <span>Dashboard</span>
+        </a>
+
+        <a href="stok.html" class="nav-link active">
+          ▤ <span>Informasi Bahan Ajar</span>
+        </a>
+
+        <a href="tracking.html" class="nav-link">
+          ⇢ <span>Tracking Pengiriman</span>
+        </a>
+
+        <a href="dashboard.html#laporan" class="nav-link">
+          ▥ <span>Laporan</span>
+        </a>
+
+        <a href="dashboard.html#histori" class="nav-link">
+          ◷ <span>Histori Transaksi</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <p class="small-muted">
+          Sistem Informasi dan Transaksi Bahan Ajar
+        </p>
+
+        <button class="btn btn-outline btn-full" data-logout>
+          Keluar
+        </button>
+      </div>
+    </aside>
+
+    <!-- KONTEN UTAMA -->
+    <main class="main-content">
+
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <button
+          class="icon-button mobile-menu-button"
+          id="menuToggle"
+          aria-label="Buka menu"
+          type="button"
+        >
+          ☰
+        </button>
+
+        <div>
+          <p class="small-muted">Menu utama / Inventaris</p>
+          <h2>Informasi Bahan Ajar</h2>
+        </div>
+
+        <div class="profile-chip">
+          <span class="avatar" id="userAvatar">U</span>
+
+          <div>
+            <strong id="userName">Pengguna</strong>
+            <small id="userRole">Pengguna SITTA</small>
+          </div>
+        </div>
+      </header>
+
+      <section class="section-block">
+
+        <!-- JUDUL HALAMAN -->
+        <div class="page-intro">
+          <span class="eyebrow">INVENTARIS</span>
+          <h1>Stok Bahan Ajar</h1>
+          <p>
+            Kelola dan pantau persediaan bahan ajar Universitas Terbuka.
+            Klik nama bahan ajar untuk melihat cover dan detailnya.
+          </p>
+        </div>
+
+        <!-- RINGKASAN STOK -->
+        <div class="stats-grid">
+          <article class="stat-card">
+            <span class="stat-icon icon-blue">▤</span>
+            <p>Jenis Bahan Ajar</p>
+            <h3 id="stockBookCount">0</h3>
+          </article>
+
+          <article class="stat-card">
+            <span class="stat-icon icon-green">✓</span>
+            <p>Total Stok</p>
+            <h3 id="stockTotal">0</h3>
+            <small>Eksemplar</small>
+          </article>
+
+          <article class="stat-card">
+            <span class="stat-icon icon-orange">!</span>
+            <p>Stok Menipis</p>
+            <h3 id="lowStockCount">0</h3>
+            <small>Stok di bawah 200</small>
+          </article>
+        </div>
+
+        <!-- DAFTAR BAHAN AJAR -->
+        <section class="content-card">
+
+          <div class="section-heading">
+            <div>
+              <h2>Daftar Bahan Ajar</h2>
+              <p>Data diambil dari variabel dataBahanAjar.</p>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="showAddForm"
+            >
+              + Tambah Stok
+            </button>
+          </div>
+
+          <!-- FORM TAMBAH STOK -->
+          <form id="addStockForm" class="add-stock-form" hidden>
+            <h3>Tambah Bahan Ajar</h3>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="kodeLokasi">Kode Lokasi</label>
+                <input
+                  id="kodeLokasi"
+                  required
+                  placeholder="Contoh: 0JKT01"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="kodeBarang">Kode Barang</label>
+                <input
+                  id="kodeBarang"
+                  required
+                  placeholder="Contoh: EKMA1234"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="namaBarang">Nama Bahan Ajar</label>
+                <input
+                  id="namaBarang"
+                  required
+                  placeholder="Nama bahan ajar"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="jenisBarang">Jenis Barang</label>
+                <select id="jenisBarang" required>
+                  <option value="BMP">BMP</option>
+                  <option value="Suplemen">Suplemen</option>
+                  <option value="Lainnya">Lainnya</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="edisi">Edisi</label>
+                <input
+                  id="edisi"
+                  type="number"
+                  min="1"
+                  required
+                  value="1"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="stokBaru">Jumlah Stok</label>
+                <input
+                  id="stokBaru"
+                  type="number"
+                  min="0"
+                  required
+                  value="0"
+                >
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                Simpan Data
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-outline"
+                id="cancelAddForm"
+              >
+                Batal
+              </button>
+            </div>
+          </form>
+
+          <!-- PENCARIAN -->
+          <div class="table-toolbar">
+            <div class="form-group search-field">
+              <label for="stockSearch">Cari bahan ajar</label>
+              <input
+                type="search"
+                id="stockSearch"
+                placeholder="Cari kode atau nama buku..."
+              >
+            </div>
+
+            <span id="stockTableCount" class="small-muted">
+              0 data
+            </span>
+          </div>
+
+          <!-- TABEL STOK -->
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Kode Lokasi</th>
+                  <th>Kode Barang</th>
+                  <th>Nama Bahan Ajar</th>
+                  <th>Jenis</th>
+                  <th>Edisi</th>
+                  <th>Stok</th>
+                </tr>
+              </thead>
+
+              <tbody id="stockTableBody">
+                <!-- Diisi otomatis oleh js/script.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <p
+            id="stockMessage"
+            class="message"
+            role="status"
+            hidden
+          ></p>
+        </section>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="page-footer">
+        © 2026 SITTA · Universitas Terbuka
+      </footer>
+    </main>
+  </div>
+
+  <!-- MODAL DETAIL COVER -->
+  <dialog id="coverModal" class="modal cover-modal">
+    <div class="modal-header">
+      <h2>Detail Bahan Ajar</h2>
+
+      <button
+        type="button"
+        class="icon-button"
+        id="closeCoverModal"
+        aria-label="Tutup"
+      >
+        ×
+      </button>
+    </div>
+
+    <div class="cover-detail">
+      <img
+        id="coverImage"
+        class="cover-image"
+        src=""
+        alt="Cover bahan ajar"
+      >
+
+      <div class="cover-information">
+        <h3 id="coverName">Nama Bahan Ajar</h3>
+
+        <p>
+          Kode Barang:
+          <strong id="coverCode"></strong>
+        </p>
+
+        <p>
+          Kode Lokasi:
+          <strong id="coverLocation"></strong>
+        </p>
+
+        <p>
+          Jenis:
+          <strong id="coverType"></strong>
+        </p>
+
+        <p>
+          Edisi:
+          <strong id="coverEdition"></strong>
+        </p>
+
+        <p>
+          Stok:
+          <strong id="coverStock"></strong>
+        </p>
+      </div>
+    </div>
+  </dialog>
+</body>
+</html>
